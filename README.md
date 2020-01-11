@@ -1,4 +1,4 @@
-#dynamodb2elastics
+# dynamodb2elastics
 
 This quick'n'dirty implementation of the lambda function which ships records from AWS DynamoDB -> AWS ElasticSearch database
 
@@ -12,7 +12,7 @@ Please, pay attention that here we use AWS authentication to send data to the ES
 If you want to use a standalone ES server or the other cloud provider - feel free to refactor the code
 and change this part.
 
-##Usage
+## Usage
 * Compile binary for the lambda function (Linux)
 `GOOS=linux GOARCH=amd64 go build .`
 * Make a zip archive of that binary file
@@ -20,14 +20,14 @@ and change this part.
 * Create a new lambda-function with Go1.x environment and upload the zip-acrhive using the console or S3
 * Fill all necessary environment variables
 
-##Environment variables
+## Environment variables
 * REGION - overwrites the default AWS_REGION variable, so you may have a lambda-function launched in the different region
 * ES_URL - https endpoint of an ElasticSearch server
 * ES_INDEX - the index to which we send data
 * RECORD_ID - an identificator of each record in a DynamoDB database, which we use as id of each record in the ES index
 * STAGE - enables you to have different kinds of logging for different environments(e.g. dev and production)
 
-##Considerations
+## Considerations
 * DynamoDB database and an ES server must be placed in the same region
 * New index is created dynamically, meaning that maybe you have to create it manually first with all necessary fields and their types
 * We use the Upsert ES method which updates records if something changes or creates new entries
