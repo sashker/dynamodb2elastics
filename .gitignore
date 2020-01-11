@@ -1,0 +1,11 @@
+#VS Code
+*.code-workspace
+
+#GoLand
+.idea
+
+#Binaries
+dynamodb2elastics
+
+#Archives
+*.zip
